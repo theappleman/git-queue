@@ -1,0 +1,26 @@
+From b8bb11a95a0fbc61324dbb410454c37793929bfd Mon Sep 17 00:00:00 2001
+From: Daniel Cordero <theappleman@gmail.com>
+Date: Mon, 17 Nov 2008 14:22:30 +0000
+Subject: [PATCH] gitk: use keybindings similar to vim
+
+---
+ gitk-git/gitk |    4 ++--
+ 1 files changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/gitk-git/gitk b/gitk-git/gitk
+index dc2a439..feda427 100644
+--- a/gitk-git/gitk
++++ b/gitk-git/gitk
+@@ -2274,8 +2274,8 @@ proc makewindow {} {
+     bindkey z "goback"
+     bindkey x "goforw"
+     bindkey i "selnextline -1"
+-    bindkey k "selnextline 1"
+-    bindkey j "goback"
++    bindkey j "selnextline 1"
++    bindkey k "goback"
+     bindkey l "goforw"
+     bindkey b prevfile
+     bindkey d "$ctext yview scroll 18 units"
+--
+1.6.1.151.g15260

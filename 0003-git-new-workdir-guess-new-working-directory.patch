@@ -1,0 +1,38 @@
+From 4067fe6f881e3e1d5b408c78df096eda826c129e Mon Sep 17 00:00:00 2001
+From: Daniel Cordero <theappleman@gmail.com>
+Date: Tue, 18 Nov 2008 20:09:27 +0000
+Subject: [PATCH] git-new-workdir: guess new working directory
+
+when only 1 argument is given, the new workdir shall be the basename of
+the original directory.
+---
+ contrib/workdir/git-new-workdir |   10 +++++++---
+ 1 files changed, 7 insertions(+), 3 deletions(-)
+
+diff --git a/contrib/workdir/git-new-workdir b/contrib/workdir/git-new-workdir
+index 993cacf..ba389f5 100755
+--- a/contrib/workdir/git-new-workdir
++++ b/contrib/workdir/git-new-workdir
+@@ -10,13 +10,17 @@ die () {
+	exit 128
+ }
+
+-if test $# -lt 2 || test $# -gt 3
++if test $# -lt 1 || test $# -gt 3
+ then
+-	usage "$0 <repository> <new_workdir> [<branch>]"
++	usage "$0 <repository> [<new_workdir> [<branch>]]"
+ fi
+
+ orig_git=$1
+-new_workdir=$2
++if [ ! -z $2 ]; then
++	new_workdir=$2
++else
++	new_workdir=`basename $1`
++fi
+ branch=$3
+
+ # want to make sure that what is pointed to has a .git directory ...
+--
+1.6.1.151.g15260

@@ -1,0 +1,54 @@
+From 9d2e0c8c9e897ffda5f48fb25812963a090ac2f9 Mon Sep 17 00:00:00 2001
+From: Daniel Cordero <theappleman@gmail.com>
+Date: Thu, 11 Dec 2008 18:40:23 +0000
+Subject: [PATCH] clone: stop force updating non-ff by default
+
+Update some test scripts.
+---
+ builtin-clone.c   |    2 +-
+ t/t5505-remote.sh |    3 ++-
+ t/t5601-clone.sh  |    2 +-
+ 3 files changed, 4 insertions(+), 3 deletions(-)
+
+diff --git a/builtin-clone.c b/builtin-clone.c
+index f1a1a0c..e2a88eb 100644
+--- a/builtin-clone.c
++++ b/builtin-clone.c
+@@ -483,7 +483,7 @@ int cmd_clone(int argc, const char **argv, const char *prefix)
+			strbuf_reset(&key);
+
+		strbuf_addf(&key, "remote.%s.fetch", option_origin);
+-		strbuf_addf(&value, "+%s*:%s*", src_ref_prefix, branch_top.buf);
++		strbuf_addf(&value, "%s*:%s*", src_ref_prefix, branch_top.buf);
+		git_config_set_multivar(key.buf, value.buf, "^$", 0);
+		strbuf_reset(&key);
+		strbuf_reset(&value);
+diff --git a/t/t5505-remote.sh b/t/t5505-remote.sh
+index 1f59960..33c6742 100755
+--- a/t/t5505-remote.sh
++++ b/t/t5505-remote.sh
+@@ -339,7 +339,8 @@ test_expect_success 'rename a remote' '
+	 rmdir .git/refs/remotes/origin &&
+	 test "$(git symbolic-ref refs/remotes/upstream/HEAD)" = "refs/remotes/upstream/master" &&
+	 test "$(git rev-parse upstream/master)" = "$(git rev-parse master)" &&
+-	 test "$(git config remote.upstream.fetch)" = "+refs/heads/*:refs/remotes/upstream/*" &&
++	 test "$(git config remote.upstream.fetch)" = "+refs/heads/*:refs/remotes/upstream/*" \
++		-o "$(git config remote.upstream.fetch)" = "refs/heads/*:refs/remotes/upstream/*" &&
+	 test "$(git config branch.master.remote)" = "upstream")
+
+ '
+diff --git a/t/t5601-clone.sh b/t/t5601-clone.sh
+index 78a3fa6..c6f3d68 100755
+--- a/t/t5601-clone.sh
++++ b/t/t5601-clone.sh
+@@ -82,7 +82,7 @@ test_expect_success 'clone --mirror' '
+	test -f mirror/HEAD &&
+	test ! -f mirror/file &&
+	FETCH="$(cd mirror && git config remote.origin.fetch)" &&
+-	test "+refs/*:refs/*" = "$FETCH" &&
++	test "+refs/*:refs/*" = "$FETCH" -o "refs/*:refs/*" = "$FETCH" &&
+	MIRROR="$(cd mirror && git config --bool remote.origin.mirror)" &&
+	test "$MIRROR" = true
+
+--
+1.6.1.151.g15260

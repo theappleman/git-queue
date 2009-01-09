@@ -1,0 +1,50 @@
+From 6aac7522641511934f8cd2e0ae37601d0268dfee Mon Sep 17 00:00:00 2001
+From: Daniel Cordero <theappleman@gmail.com>
+Date: Fri, 2 Jan 2009 12:27:35 +0000
+Subject: [PATCH] fetch-all: new script
+
+add a fetch-all command to, well, run fetch from all known remotes.
+---
+ .gitignore       |    1 +
+ Makefile         |    1 +
+ git-fetch-all.sh |    5 +++++
+ 3 files changed, 7 insertions(+), 0 deletions(-)
+ create mode 100755 git-fetch-all.sh
+
+diff --git a/.gitignore b/.gitignore
+index d9adce5..071c8db 100644
+--- a/.gitignore
++++ b/.gitignore
+@@ -39,6 +39,7 @@ git-describe
+ git-fast-export
+ git-fast-import
+ git-fetch
++git-fetch-all
+ git-fetch--tool
+ git-fetch-pack
+ git-filter-branch
+diff --git a/Makefile b/Makefile
+index dee97c1..6719a7b 100644
+--- a/Makefile
++++ b/Makefile
+@@ -252,6 +252,7 @@ BASIC_LDFLAGS =
+
+ SCRIPT_SH += git-am.sh
+ SCRIPT_SH += git-bisect.sh
++SCRIPT_SH += git-fetch-all.sh
+ SCRIPT_SH += git-filter-branch.sh
+ SCRIPT_SH += git-lost-found.sh
+ SCRIPT_SH += git-merge-octopus.sh
+diff --git a/git-fetch-all.sh b/git-fetch-all.sh
+new file mode 100755
+index 0000000..f0ea9fb
+--- /dev/null
++++ b/git-fetch-all.sh
+@@ -0,0 +1,5 @@
++#!/bin/sh
++
++for remote in $(git remote); do
++	git fetch $remote
++done
+--
+1.6.1.151.g15260

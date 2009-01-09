@@ -1,0 +1,43 @@
+From cd6c930a57f03899725ee8da4bb4348f0d19f44d Mon Sep 17 00:00:00 2001
+From: Daniel Cordero <theappleman@gmail.com>
+Date: Mon, 20 Oct 2008 16:23:44 +0100
+Subject: [PATCH] Let "git add -p" stage hunk on empty string.
+
+When I use "git add -p", I usually need to add most of it as-is, and
+edit or reject a few. To make this faster, take a blank string (press
+enter) to stage the hunk or mode change.
+---
+ git-add--interactive.perl |    8 ++++----
+ 1 files changed, 4 insertions(+), 4 deletions(-)
+
+diff --git a/git-add--interactive.perl b/git-add--interactive.perl
+index ca60356..53e818b 100755
+--- a/git-add--interactive.perl
++++ b/git-add--interactive.perl
+@@ -891,9 +891,9 @@ sub patch_update_file {
+		while (1) {
+			print @{$mode->{DISPLAY}};
+			print colored $prompt_color,
+-				"Stage mode change [y/n/a/d/?]? ";
++				"Stage mode change [Y/n/a/d/?]? ";
+			my $line = <STDIN>;
+-			if ($line =~ /^y/i) {
++			if ($line =~ /^y/i or $line =~ /^$/) {
+				$mode->{USE} = 1;
+				last;
+			}
+@@ -964,10 +964,10 @@ sub patch_update_file {
+		for (@{$hunk[$ix]{DISPLAY}}) {
+			print;
+		}
+-		print colored $prompt_color, "Stage this hunk [y/n/a/d$other/?]? ";
++		print colored $prompt_color, "Stage this hunk [Y/n/a/d$other/?]? ";
+		my $line = <STDIN>;
+		if ($line) {
+-			if ($line =~ /^y/i) {
++			if ($line =~ /^y/i or $line =~ /^$/) {
+				$hunk[$ix]{USE} = 1;
+			}
+			elsif ($line =~ /^n/i) {
+--
+1.6.1.151.g15260
