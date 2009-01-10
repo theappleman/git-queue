@@ -1,0 +1,11 @@
+These are my personal patches for git.git.
+
+They are all pretty small changes, so I haven't really sent them off for
+inclusion proper.
+
+Also, there are no S-o-b lines, so you can't actually let them get included.
+However, I would be happy to add them and send them to be included if someone
+thinks that it is useful enough.
+
+If you wish, test and modify them yourself. If you send them for inclusion,
+it'll be kind if you send it with your own name and Cc: me or something.
