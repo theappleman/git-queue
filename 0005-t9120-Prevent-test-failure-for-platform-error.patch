@@ -1,4 +1,4 @@
-From 3ef4e20ee9589aec3eb4c2806dbfeb3c8425dd50 Mon Sep 17 00:00:00 2001
+From 4b8d2c8b967087468128caa6ef33719bb965ebff Mon Sep 17 00:00:00 2001
 From: Daniel Cordero <theappleman@gmail.com>
 Date: Sun, 7 Dec 2008 09:33:30 +0000
 Subject: [PATCH] t9120: Prevent test failure for platform error

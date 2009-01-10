@@ -1,4 +1,4 @@
-From 1f612f27cefba3cce02f1c00df17c70096c243a1 Mon Sep 17 00:00:00 2001
+From b376571fc1af3b3b6602004f12df26d372946a65 Mon Sep 17 00:00:00 2001
 From: Daniel Cordero <theappleman@gmail.com>
 Date: Sat, 6 Dec 2008 10:41:42 +0000
 Subject: [PATCH] t9129: Make test find any UTF-8 locale
@@ -9,11 +9,11 @@ installed.
 
 If no UTF-8 locale is found, skip the tests.
 ---
- t/t9129-git-svn-i18n-commitencoding.sh |   12 +++++++++---
- 1 files changed, 9 insertions(+), 3 deletions(-)
+ t/t9129-git-svn-i18n-commitencoding.sh |   13 ++++++++++---
+ 1 files changed, 10 insertions(+), 3 deletions(-)
 
 diff --git a/t/t9129-git-svn-i18n-commitencoding.sh b/t/t9129-git-svn-i18n-commitencoding.sh
-index 8a9dde4..6ac50ba 100755
+index 8a9dde4..23e9a5c 100755
 --- a/t/t9129-git-svn-i18n-commitencoding.sh
 +++ b/t/t9129-git-svn-i18n-commitencoding.sh
 @@ -6,6 +6,11 @@ test_description='git svn honors i18n.commitEncoding in config'
@@ -28,26 +28,27 @@ index 8a9dde4..6ac50ba 100755
  compare_git_head_with () {
  	nr=`wc -l < "$1"`
  	a=7
-@@ -15,7 +20,8 @@ compare_git_head_with () {
+@@ -15,7 +20,7 @@ compare_git_head_with () {
  }
  
  compare_svn_head_with () {
 -	LC_ALL=en_US.UTF-8 svn log --limit 1 `git svn info --url` | \
-+	say "Using locale: $utf8_locale"
 +	LC_ALL="$utf8_locale" svn log --limit 1 `git svn info --url` | \
  		sed -e 1,3d -e "/^-\{1,\}\$/d" >current &&
  	test_cmp current "$1"
  }
-@@ -60,7 +66,7 @@ do
+@@ -60,7 +65,9 @@ do
  	'
  done
  
 -if locale -a |grep -q en_US.utf8; then
 +if test "$utf8_locale"; then
++	say "Using locale: $utf8_locale"
++
  	test_expect_success 'ISO-8859-1 should match UTF-8 in svn' '
  	(
  		cd ISO-8859-1 &&
-@@ -78,7 +84,7 @@ if locale -a |grep -q en_US.utf8; then
+@@ -78,7 +85,7 @@ if locale -a |grep -q en_US.utf8; then
  		'
  	done
  else

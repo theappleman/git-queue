@@ -1,4 +1,4 @@
-From 88abcc88c29c1cc14ece027a3d2a192765f9c054 Mon Sep 17 00:00:00 2001
+From 8b97385e2e60ee58f38850f63389c0f23066ffbb Mon Sep 17 00:00:00 2001
 From: Daniel Cordero <theappleman@gmail.com>
 Date: Sun, 21 Dec 2008 23:34:11 +0000
 Subject: [PATCH] Docs: remove references to $GIT_DIR/remotes
