@@ -22,5 +22,6 @@ index dc2a439..feda427 100644
      bindkey l "goforw"
      bindkey b prevfile
      bindkey d "$ctext yview scroll 18 units"
---
-1.6.1.151.g15260
+-- 
+1.6.1.150.g6aac
+

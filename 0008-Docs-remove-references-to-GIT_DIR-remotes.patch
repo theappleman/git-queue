@@ -15,13 +15,13 @@ index 7578623..853554d 100644
 +++ b/Documentation/git-pull.txt
 @@ -65,16 +65,13 @@ present while on branch `<name>`, that value is used instead of
  `origin`.
-
+ 
  In order to determine what URL to use to fetch from, the value
 -of the configuration `remote.<origin>.url` is consulted
 -and if there is not any such variable, the value on `URL: ` line
 -in `$GIT_DIR/remotes/<origin>` file is used.
 +of the configuration `remote.<origin>.url` is consulted.
-
+ 
  In order to determine what remote branches to fetch (and
  optionally store in the tracking branches) when the command is
  run without any refspec parameters on the command line, values
@@ -31,6 +31,7 @@ index 7578623..853554d 100644
 +consulted.
  In addition to the refspec formats described in the OPTIONS
  section, you can have a globbing refspec that looks like this:
+ 
+-- 
+1.6.1.150.g6aac
 
---
-1.6.1.151.g15260

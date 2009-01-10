@@ -13,7 +13,7 @@ index bb921af..272474f 100755
 +++ b/t/t9100-git-svn-basic.sh
 @@ -4,16 +4,10 @@
  #
-
+ 
  test_description='git svn basic tests'
 -GIT_SVN_LC_ALL=${LC_ALL:-$LANG}
 -
@@ -29,26 +29,27 @@ index bb921af..272474f 100755
 +	p
 +	q
 +}')
-
+ 
  . ./lib-git-svn.sh
-
+ 
 @@ -171,7 +165,7 @@ test_expect_success "$name" '
-	test ! -L "$SVN_TREE"/exec-2.sh &&
-	test_cmp help "$SVN_TREE"/exec-2.sh'
-
+ 	test ! -L "$SVN_TREE"/exec-2.sh &&
+ 	test_cmp help "$SVN_TREE"/exec-2.sh'
+ 
 -if test "$have_utf8" = t
 +if test "$GIT_SVN_LC_ALL"
  then
-	name="commit with UTF-8 message: locale: $GIT_SVN_LC_ALL"
-	LC_ALL="$GIT_SVN_LC_ALL"
+ 	name="commit with UTF-8 message: locale: $GIT_SVN_LC_ALL"
+ 	LC_ALL="$GIT_SVN_LC_ALL"
 @@ -197,7 +191,7 @@ test_expect_success "$name" \
-
+ 
  name='check imported tree checksums expected tree checksums'
  rm -f expected
 -if test "$have_utf8" = t
 +if test "$GIT_SVN_LC_ALL"
  then
-	echo tree bf522353586b1b883488f2bc73dab0d9f774b9a9 > expected
+ 	echo tree bf522353586b1b883488f2bc73dab0d9f774b9a9 > expected
  fi
---
-1.6.1.151.g15260
+-- 
+1.6.1.150.g6aac
+

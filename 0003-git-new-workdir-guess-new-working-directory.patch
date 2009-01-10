@@ -14,16 +14,16 @@ index 993cacf..ba389f5 100755
 --- a/contrib/workdir/git-new-workdir
 +++ b/contrib/workdir/git-new-workdir
 @@ -10,13 +10,17 @@ die () {
-	exit 128
+ 	exit 128
  }
-
+ 
 -if test $# -lt 2 || test $# -gt 3
 +if test $# -lt 1 || test $# -gt 3
  then
 -	usage "$0 <repository> <new_workdir> [<branch>]"
 +	usage "$0 <repository> [<new_workdir> [<branch>]]"
  fi
-
+ 
  orig_git=$1
 -new_workdir=$2
 +if [ ! -z $2 ]; then
@@ -32,7 +32,8 @@ index 993cacf..ba389f5 100755
 +	new_workdir=`basename $1`
 +fi
  branch=$3
-
+ 
  # want to make sure that what is pointed to has a .git directory ...
---
-1.6.1.151.g15260
+-- 
+1.6.1.150.g6aac
+

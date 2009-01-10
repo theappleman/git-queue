@@ -16,7 +16,7 @@ index ef2c052..1a85491 100755
 @@ -6,26 +6,26 @@
  test_description='git svn clone with percent escapes'
  . ./lib-git-svn.sh
-
+ 
 -test_expect_success 'setup svnrepo' '
 -	mkdir project project/trunk project/branches project/tags &&
 -	echo foo > project/trunk/foo &&
@@ -38,18 +38,19 @@ index ef2c052..1a85491 100755
 +		start_httpd
 +	'
 +
-	test_expect_success 'test clone with percent escapes' '
-		git svn clone "$svnrepo/pr%20ject" clone &&
-		cd clone &&
-			git rev-parse refs/${remotes_git_svn} &&
-		cd ..
-	'
+ 	test_expect_success 'test clone with percent escapes' '
+ 		git svn clone "$svnrepo/pr%20ject" clone &&
+ 		cd clone &&
+ 			git rev-parse refs/${remotes_git_svn} &&
+ 		cd ..
+ 	'
 -fi
-
+ 
 -stop_httpd
 +	stop_httpd
 +fi
-
+ 
  test_done
---
-1.6.1.151.g15260
+-- 
+1.6.1.150.g6aac
+

@@ -28,7 +28,7 @@ index dee97c1..6719a7b 100644
 --- a/Makefile
 +++ b/Makefile
 @@ -252,6 +252,7 @@ BASIC_LDFLAGS =
-
+ 
  SCRIPT_SH += git-am.sh
  SCRIPT_SH += git-bisect.sh
 +SCRIPT_SH += git-fetch-all.sh
@@ -46,5 +46,6 @@ index 0000000..f0ea9fb
 +for remote in $(git remote); do
 +	git fetch $remote
 +done
---
-1.6.1.151.g15260
+-- 
+1.6.1.150.g6aac
+
