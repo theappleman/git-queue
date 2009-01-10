@@ -1,4 +1,4 @@
-From cd6c930a57f03899725ee8da4bb4348f0d19f44d Mon Sep 17 00:00:00 2001
+From 47ddaa18b451e139e51c4bcc731ee76a612de7e1 Mon Sep 17 00:00:00 2001
 From: Daniel Cordero <theappleman@gmail.com>
 Date: Mon, 20 Oct 2008 16:23:44 +0100
 Subject: [PATCH] Let "git add -p" stage hunk on empty string.
@@ -40,5 +40,5 @@ index ca60356..53e818b 100755
  			}
  			elsif ($line =~ /^n/i) {
 -- 
-1.6.1.150.g6aac
+1.6.1.160.g064a
 

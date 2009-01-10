@@ -1,0 +1,56 @@
+From 0922c29f8149a309be35dbd1a0e6013f14a1bed6 Mon Sep 17 00:00:00 2001
+From: Daniel Cordero <theappleman@gmail.com>
+Date: Sat, 10 Jan 2009 13:44:35 +0000
+Subject: [PATCH] push: add -n short option to --dry-run
+
+---
+ Documentation/git-push.txt |    3 ++-
+ builtin-push.c             |    4 ++--
+ 2 files changed, 4 insertions(+), 3 deletions(-)
+
+diff --git a/Documentation/git-push.txt b/Documentation/git-push.txt
+index 6150b1b..d70b62b 100644
+--- a/Documentation/git-push.txt
++++ b/Documentation/git-push.txt
+@@ -9,7 +9,7 @@ git-push - Update remote refs along with associated objects
+ SYNOPSIS
+ --------
+ [verse]
+-'git push' [--all | --mirror] [--dry-run] [--tags] [--receive-pack=<git-receive-pack>]
++'git push' [--all | --mirror] [-n | --dry-run] [--tags] [--receive-pack=<git-receive-pack>]
+ 	   [--repo=<repository>] [-f | --force] [-v | --verbose]
+ 	   [<repository> <refspec>...]
+ 
+@@ -77,6 +77,7 @@ nor in any Push line of the corresponding remotes file---see below).
+ 	if the configuration option `remote.<remote>.mirror` is
+ 	set.
+ 
++-n::
+ --dry-run::
+ 	Do everything except actually send the updates.
+ 
+diff --git a/builtin-push.c b/builtin-push.c
+index 122fdcf..991c90b 100644
+--- a/builtin-push.c
++++ b/builtin-push.c
+@@ -10,7 +10,7 @@
+ #include "parse-options.h"
+ 
+ static const char * const push_usage[] = {
+-	"git push [--all | --mirror] [--dry-run] [--tags] [--receive-pack=<git-receive-pack>] [--repo=<repository>] [-f | --force] [-v] [<repository> <refspec>...]",
++	"git push [--all | --mirror] [-n | --dry-run] [--tags] [--receive-pack=<git-receive-pack>] [--repo=<repository>] [-f | --force] [-v] [<repository> <refspec>...]",
+ 	NULL,
+ };
+ 
+@@ -121,7 +121,7 @@ int cmd_push(int argc, const char **argv, const char *prefix)
+ 		OPT_BIT( 0 , "mirror", &flags, "mirror all refs",
+ 			    (TRANSPORT_PUSH_MIRROR|TRANSPORT_PUSH_FORCE)),
+ 		OPT_BOOLEAN( 0 , "tags", &tags, "push tags"),
+-		OPT_BIT( 0 , "dry-run", &flags, "dry run", TRANSPORT_PUSH_DRY_RUN),
++		OPT_BIT('n', "dry-run", &flags, "dry run", TRANSPORT_PUSH_DRY_RUN),
+ 		OPT_BIT('f', "force", &flags, "force updates", TRANSPORT_PUSH_FORCE),
+ 		OPT_BOOLEAN( 0 , "thin", &thin, "use thin pack"),
+ 		OPT_STRING( 0 , "receive-pack", &receivepack, "receive-pack", "receive pack program"),
+-- 
+1.6.1.160.g064a
+

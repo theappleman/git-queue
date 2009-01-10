@@ -1,4 +1,4 @@
-From 47c27229129b82745590130c275d3ceabefda0a4 Mon Sep 17 00:00:00 2001
+From 50649737feaa007d03efefd6b84cc0b10bd2ad03 Mon Sep 17 00:00:00 2001
 From: Daniel Cordero <theappleman@gmail.com>
 Date: Fri, 2 Jan 2009 12:27:35 +0000
 Subject: [PATCH] fetch-all: new script
@@ -47,5 +47,5 @@ index 0000000..f0ea9fb
 +	git fetch $remote
 +done
 -- 
-1.6.1.150.g6aac
+1.6.1.160.g064a
 

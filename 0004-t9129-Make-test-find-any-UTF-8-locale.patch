@@ -1,4 +1,4 @@
-From b376571fc1af3b3b6602004f12df26d372946a65 Mon Sep 17 00:00:00 2001
+From fb98acd749eafb4f2a2b47d069ebb9b660e965b7 Mon Sep 17 00:00:00 2001
 From: Daniel Cordero <theappleman@gmail.com>
 Date: Sat, 6 Dec 2008 10:41:42 +0000
 Subject: [PATCH] t9129: Make test find any UTF-8 locale
@@ -58,5 +58,5 @@ index 8a9dde4..23e9a5c 100755
  
  test_done
 -- 
-1.6.1.150.g6aac
+1.6.1.160.g064a
 

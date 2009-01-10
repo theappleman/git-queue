@@ -1,4 +1,4 @@
-From 4b8d2c8b967087468128caa6ef33719bb965ebff Mon Sep 17 00:00:00 2001
+From b00e17b4dc34290783421fd033fe7ac704ddffad Mon Sep 17 00:00:00 2001
 From: Daniel Cordero <theappleman@gmail.com>
 Date: Sun, 7 Dec 2008 09:33:30 +0000
 Subject: [PATCH] t9120: Prevent test failure for platform error
@@ -52,5 +52,5 @@ index ef2c052..1a85491 100755
  
  test_done
 -- 
-1.6.1.150.g6aac
+1.6.1.160.g064a
 

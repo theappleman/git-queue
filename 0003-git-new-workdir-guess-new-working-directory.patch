@@ -1,4 +1,4 @@
-From 4067fe6f881e3e1d5b408c78df096eda826c129e Mon Sep 17 00:00:00 2001
+From e6f78b884ee83271e2aa553f392c98b602e0f81f Mon Sep 17 00:00:00 2001
 From: Daniel Cordero <theappleman@gmail.com>
 Date: Tue, 18 Nov 2008 20:09:27 +0000
 Subject: [PATCH] git-new-workdir: guess new working directory
@@ -35,5 +35,5 @@ index 993cacf..ba389f5 100755
  
  # want to make sure that what is pointed to has a .git directory ...
 -- 
-1.6.1.150.g6aac
+1.6.1.160.g064a
 

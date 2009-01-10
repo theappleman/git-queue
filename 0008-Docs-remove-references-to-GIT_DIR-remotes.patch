@@ -1,4 +1,4 @@
-From 8b97385e2e60ee58f38850f63389c0f23066ffbb Mon Sep 17 00:00:00 2001
+From 359a8bfb01dfd2347a83aa06c1134c3068c4a7f5 Mon Sep 17 00:00:00 2001
 From: Daniel Cordero <theappleman@gmail.com>
 Date: Sun, 21 Dec 2008 23:34:11 +0000
 Subject: [PATCH] Docs: remove references to $GIT_DIR/remotes
@@ -33,5 +33,5 @@ index 7578623..853554d 100644
  section, you can have a globbing refspec that looks like this:
  
 -- 
-1.6.1.150.g6aac
+1.6.1.160.g064a
 
