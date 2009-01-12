@@ -1,11 +1,9 @@
-From 48d030e227f1c40bf4487a0de48b4a1a6336dc98 Mon Sep 17 00:00:00 2001
-From: Daniel Cordero <theappleman@gmail.com>
-Date: Thu, 25 Dec 2008 09:27:03 +0000
-Subject: [PATCH] t9100: locale fixes
-
+t9100: locale fixes
 ---
+
  t/t9100-git-svn-basic.sh |   18 ++++++------------
  1 files changed, 6 insertions(+), 12 deletions(-)
+
 
 diff --git a/t/t9100-git-svn-basic.sh b/t/t9100-git-svn-basic.sh
 index bb921af..272474f 100755
@@ -50,6 +48,3 @@ index bb921af..272474f 100755
  then
  	echo tree bf522353586b1b883488f2bc73dab0d9f774b9a9 > expected
  fi
--- 
-1.6.1.160.g064a
-

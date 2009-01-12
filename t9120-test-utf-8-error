@@ -1,13 +1,12 @@
-From b00e17b4dc34290783421fd033fe7ac704ddffad Mon Sep 17 00:00:00 2001
-From: Daniel Cordero <theappleman@gmail.com>
-Date: Sun, 7 Dec 2008 09:33:30 +0000
-Subject: [PATCH] t9120: Prevent test failure for platform error
+t9120: Prevent test failure for platform error
 
 This test will always fail (and be broken) while SVN_HTTPD_PORT is not
 set.
 ---
+
  t/t9120-git-svn-clone-with-percent-escapes.sh |   22 +++++++++++-----------
  1 files changed, 11 insertions(+), 11 deletions(-)
+
 
 diff --git a/t/t9120-git-svn-clone-with-percent-escapes.sh b/t/t9120-git-svn-clone-with-percent-escapes.sh
 index ef2c052..1a85491 100755
@@ -51,6 +50,3 @@ index ef2c052..1a85491 100755
 +fi
  
  test_done
--- 
-1.6.1.160.g064a
-

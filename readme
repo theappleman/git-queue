@@ -9,3 +9,8 @@ thinks that it is useful enough.
 
 If you wish, test and modify them yourself. If you send them for inclusion,
 it'll be kind if you send it with your own name and Cc: me or something.
+
+---
+
+To apply these patches:
+	$ git quiltimport --author "Daniel Cordero <theappleman@gmail.com>" --patches /path/to/patches

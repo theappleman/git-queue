@@ -1,0 +1,10 @@
+push-dry-run-short-option
+fetch-all
+doc-remotes-reference
+clone-no-ff-default
+t9100-test-utf-8-error
+t9120-test-utf-8-error
+t9129-test-utf-8-error
+new-workdir-guess-basename
+gitk-vim-bindings
+add-p-empty

@@ -1,7 +1,4 @@
-From fb98acd749eafb4f2a2b47d069ebb9b660e965b7 Mon Sep 17 00:00:00 2001
-From: Daniel Cordero <theappleman@gmail.com>
-Date: Sat, 6 Dec 2008 10:41:42 +0000
-Subject: [PATCH] t9129: Make test find any UTF-8 locale
+t9129: Make test find any UTF-8 locale
 
 Commit 16fc08e2d86dad152194829d21bc55b2ef0c8fb1 introduced a
 test that failed if the hardcoded en_US.UTF-8 locale was not
@@ -9,8 +6,10 @@ installed.
 
 If no UTF-8 locale is found, skip the tests.
 ---
+
  t/t9129-git-svn-i18n-commitencoding.sh |   13 ++++++++++---
  1 files changed, 10 insertions(+), 3 deletions(-)
+
 
 diff --git a/t/t9129-git-svn-i18n-commitencoding.sh b/t/t9129-git-svn-i18n-commitencoding.sh
 index 8a9dde4..23e9a5c 100755
@@ -57,6 +56,3 @@ index 8a9dde4..23e9a5c 100755
  fi
  
  test_done
--- 
-1.6.1.160.g064a
-

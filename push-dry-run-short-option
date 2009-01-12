@@ -1,12 +1,10 @@
-From 0922c29f8149a309be35dbd1a0e6013f14a1bed6 Mon Sep 17 00:00:00 2001
-From: Daniel Cordero <theappleman@gmail.com>
-Date: Sat, 10 Jan 2009 13:44:35 +0000
-Subject: [PATCH] push: add -n short option to --dry-run
-
+push: add -n short option to --dry-run
 ---
+
  Documentation/git-push.txt |    3 ++-
  builtin-push.c             |    4 ++--
  2 files changed, 4 insertions(+), 3 deletions(-)
+
 
 diff --git a/Documentation/git-push.txt b/Documentation/git-push.txt
 index 6150b1b..d70b62b 100644
@@ -51,6 +49,3 @@ index 122fdcf..991c90b 100644
  		OPT_BIT('f', "force", &flags, "force updates", TRANSPORT_PUSH_FORCE),
  		OPT_BOOLEAN( 0 , "thin", &thin, "use thin pack"),
  		OPT_STRING( 0 , "receive-pack", &receivepack, "receive-pack", "receive pack program"),
--- 
-1.6.1.160.g064a
-

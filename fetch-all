@@ -1,15 +1,14 @@
-From 50649737feaa007d03efefd6b84cc0b10bd2ad03 Mon Sep 17 00:00:00 2001
-From: Daniel Cordero <theappleman@gmail.com>
-Date: Fri, 2 Jan 2009 12:27:35 +0000
-Subject: [PATCH] fetch-all: new script
+fetch-all: new script
 
 add a fetch-all command to, well, run fetch from all known remotes.
 ---
+
  .gitignore       |    1 +
  Makefile         |    1 +
  git-fetch-all.sh |    5 +++++
  3 files changed, 7 insertions(+), 0 deletions(-)
  create mode 100755 git-fetch-all.sh
+
 
 diff --git a/.gitignore b/.gitignore
 index d9adce5..071c8db 100644
@@ -46,6 +45,3 @@ index 0000000..f0ea9fb
 +for remote in $(git remote); do
 +	git fetch $remote
 +done
--- 
-1.6.1.160.g064a
-
