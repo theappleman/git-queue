@@ -1,0 +1,41 @@
+mergetool merge/skip/abort
+
+From: Caleb Cushing <xenoterracide@gmail.com>
+
+add functionality to skip merging a file or abort from the merge
+
+Signed-off-by: Caleb Cushing <xenoterracide@gmail.com>
+diff --git c/git-mergetool.sh w/git-mergetool.sh
+index 00e1337..fd39a5a 100755
+--- c/git-mergetool.sh
++++ w/git-mergetool.sh
+@@ -177,11 +177,27 @@ merge_file () {
+     describe_file "$local_mode" "local" "$LOCAL"
+     describe_file "$remote_mode" "remote" "$REMOTE"
+     if "$prompt" = true; then
+-	printf "Hit return to start merge resolution tool (%s): " "$merge_tool"
++	while true; do
++	printf "Use (m)erge or (s)kip file, or (a)bort? (%s): " \
++	"$merge_tool"
+ 	read ans
++	case "$ans" in
++		[mM]*)
++		break
++		;;
++		[sS]*)
++		clearup_temp_files
++		return 0
++		;;
++		[aA]*)
++		cleanup_temp_files
++		exit 0
++		;;
++	esac
++	done
+     fi
+ 
+-    case "$merge_tool" in
++	case "$merge_tool" in
+ 	kdiff3)
+ 	    if base_present ; then
+ 		("$merge_tool_path" --auto --L1 "$MERGED (Base)" --L2 "$MERGED (Local)" --L3 "$MERGED (Remote)" \
