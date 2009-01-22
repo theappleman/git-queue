@@ -5,7 +5,6 @@ doc-remotes-reference
 push-dry-run-short-option
 gitk-vim-bindings
 add-p-empty
-mergetool-msa
 fetch-all
 new-workdir-guess-basename
 clone-no-ff-default
