@@ -8,3 +8,4 @@ add-p-empty
 fetch-all
 new-workdir-guess-basename
 clone-no-ff-default
+abbrev-8

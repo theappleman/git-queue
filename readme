@@ -1,6 +1,6 @@
 These are my personal patches for git.git.
 
-They are all pretty small changes, so I haven't really sent them off for
+They are all pretty small changes, and I haven't really sent them off for
 inclusion proper.
 
 Also, there are no S-o-b lines, so you can't actually let them get included.
@@ -13,4 +13,6 @@ it'll be kind if you send it with your own name and Cc: me or something.
 ---
 
 To apply these patches:
-	$ git quiltimport --author "Daniel Cordero <theappleman@gmail.com>" --patches /path/to/patches
+	$ git quiltimport --patches /path/to/patches/
+
+where /path/to/patches is the location of the checkout of this repo.

@@ -1,15 +1,10 @@
+From: Daniel Cordero <theappleman@gmail.com>
+
 push: add -n short option to --dry-run
----
-
- Documentation/git-push.txt |    3 ++-
- builtin-push.c             |    4 ++--
- 2 files changed, 4 insertions(+), 3 deletions(-)
-
-
-diff --git a/Documentation/git-push.txt b/Documentation/git-push.txt
-index 6150b1b..d70b62b 100644
---- a/Documentation/git-push.txt
-+++ b/Documentation/git-push.txt
+diff --git c/Documentation/git-push.txt w/Documentation/git-push.txt
+index 7b27dc6..8e95440 100644
+--- c/Documentation/git-push.txt
++++ w/Documentation/git-push.txt
 @@ -9,7 +9,7 @@ git-push - Update remote refs along with associated objects
  SYNOPSIS
  --------
@@ -19,7 +14,7 @@ index 6150b1b..d70b62b 100644
  	   [--repo=<repository>] [-f | --force] [-v | --verbose]
  	   [<repository> <refspec>...]
  
-@@ -77,6 +77,7 @@ nor in any Push line of the corresponding remotes file---see below).
+@@ -78,6 +78,7 @@ nor in any Push line of the corresponding remotes file---see below).
  	if the configuration option `remote.<remote>.mirror` is
  	set.
  
@@ -27,10 +22,10 @@ index 6150b1b..d70b62b 100644
  --dry-run::
  	Do everything except actually send the updates.
  
-diff --git a/builtin-push.c b/builtin-push.c
+diff --git c/builtin-push.c w/builtin-push.c
 index 122fdcf..991c90b 100644
---- a/builtin-push.c
-+++ b/builtin-push.c
+--- c/builtin-push.c
++++ w/builtin-push.c
 @@ -10,7 +10,7 @@
  #include "parse-options.h"
  

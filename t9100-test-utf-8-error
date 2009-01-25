@@ -1,14 +1,10 @@
+From: Daniel Cordero <theappleman@gmail.com>
+
 t9100: locale fixes
----
-
- t/t9100-git-svn-basic.sh |   18 ++++++------------
- 1 files changed, 6 insertions(+), 12 deletions(-)
-
-
-diff --git a/t/t9100-git-svn-basic.sh b/t/t9100-git-svn-basic.sh
+diff --git c/t/t9100-git-svn-basic.sh w/t/t9100-git-svn-basic.sh
 index bb921af..272474f 100755
---- a/t/t9100-git-svn-basic.sh
-+++ b/t/t9100-git-svn-basic.sh
+--- c/t/t9100-git-svn-basic.sh
++++ w/t/t9100-git-svn-basic.sh
 @@ -4,16 +4,10 @@
  #
  

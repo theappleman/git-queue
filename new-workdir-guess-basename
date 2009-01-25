@@ -1,17 +1,13 @@
+From: Daniel Cordero <theappleman@gmail.com>
+
 git-new-workdir: guess new working directory
 
 when only 1 argument is given, the new workdir shall be the basename of
 the original directory.
----
-
- contrib/workdir/git-new-workdir |   10 +++++++---
- 1 files changed, 7 insertions(+), 3 deletions(-)
-
-
-diff --git a/contrib/workdir/git-new-workdir b/contrib/workdir/git-new-workdir
+diff --git c/contrib/workdir/git-new-workdir w/contrib/workdir/git-new-workdir
 index 993cacf..ba389f5 100755
---- a/contrib/workdir/git-new-workdir
-+++ b/contrib/workdir/git-new-workdir
+--- c/contrib/workdir/git-new-workdir
++++ w/contrib/workdir/git-new-workdir
 @@ -10,13 +10,17 @@ die () {
  	exit 128
  }

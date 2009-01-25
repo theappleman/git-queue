@@ -1,19 +1,12 @@
+From: Daniel Cordero <theappleman@gmail.com>
+
 fetch-all: new script
 
 add a fetch-all command to, well, run fetch from all known remotes.
----
-
- .gitignore       |    1 +
- Makefile         |    1 +
- git-fetch-all.sh |    5 +++++
- 3 files changed, 7 insertions(+), 0 deletions(-)
- create mode 100755 git-fetch-all.sh
-
-
-diff --git a/.gitignore b/.gitignore
-index d9adce5..071c8db 100644
---- a/.gitignore
-+++ b/.gitignore
+diff --git c/.gitignore w/.gitignore
+index f89428b..4cecb12 100644
+--- c/.gitignore
++++ w/.gitignore
 @@ -39,6 +39,7 @@ git-describe
  git-fast-export
  git-fast-import
@@ -22,10 +15,10 @@ index d9adce5..071c8db 100644
  git-fetch--tool
  git-fetch-pack
  git-filter-branch
-diff --git a/Makefile b/Makefile
-index dee97c1..6719a7b 100644
---- a/Makefile
-+++ b/Makefile
+diff --git c/Makefile w/Makefile
+index 4ef8234..a9d62a4 100644
+--- c/Makefile
++++ w/Makefile
 @@ -252,6 +252,7 @@ BASIC_LDFLAGS =
  
  SCRIPT_SH += git-am.sh
@@ -34,14 +27,14 @@ index dee97c1..6719a7b 100644
  SCRIPT_SH += git-filter-branch.sh
  SCRIPT_SH += git-lost-found.sh
  SCRIPT_SH += git-merge-octopus.sh
-diff --git a/git-fetch-all.sh b/git-fetch-all.sh
+diff --git c/git-fetch-all.sh w/git-fetch-all.sh
 new file mode 100755
-index 0000000..f0ea9fb
+index 0000000..0436ca3
 --- /dev/null
-+++ b/git-fetch-all.sh
++++ w/git-fetch-all.sh
 @@ -0,0 +1,5 @@
 +#!/bin/sh
 +
 +for remote in $(git remote); do
-+	git fetch $remote
++	git fetch "$remote"
 +done

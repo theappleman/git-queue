@@ -1,18 +1,14 @@
+From: Daniel Cordero <theappleman@gmail.com>
+
 Let "git add -p" stage hunk on empty string
 
 When I use "git add -p", I usually need to add most of it as-is, and
 edit or reject a few. To make this faster, take a blank string (press
 enter) to stage the hunk or mode change.
----
-
- git-add--interactive.perl |    8 ++++----
- 1 files changed, 4 insertions(+), 4 deletions(-)
-
-
-diff --git a/git-add--interactive.perl b/git-add--interactive.perl
+diff --git c/git-add--interactive.perl w/git-add--interactive.perl
 index ca60356..53e818b 100755
---- a/git-add--interactive.perl
-+++ b/git-add--interactive.perl
+--- c/git-add--interactive.perl
++++ w/git-add--interactive.perl
 @@ -891,9 +891,9 @@ sub patch_update_file {
  		while (1) {
  			print @{$mode->{DISPLAY}};

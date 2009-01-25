@@ -1,14 +1,10 @@
+From: Daniel Cordero <theappleman@gmail.com>
+
 gitk: use keybindings similar to vim
----
-
- gitk-git/gitk |    4 ++--
- 1 files changed, 2 insertions(+), 2 deletions(-)
-
-
-diff --git a/gitk-git/gitk b/gitk-git/gitk
+diff --git c/gitk-git/gitk w/gitk-git/gitk
 index dc2a439..feda427 100644
---- a/gitk-git/gitk
-+++ b/gitk-git/gitk
+--- c/gitk-git/gitk
++++ w/gitk-git/gitk
 @@ -2274,8 +2274,8 @@ proc makewindow {} {
      bindkey z "goback"
      bindkey x "goforw"

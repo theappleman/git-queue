@@ -1,19 +1,13 @@
+From: Daniel Cordero <theappleman@gmail.com>
+
 clone: stop force updating non-ff by default
 
 And update some test scripts.
----
-
- builtin-clone.c   |    2 +-
- t/t5505-remote.sh |    3 ++-
- t/t5601-clone.sh  |    2 +-
- 3 files changed, 4 insertions(+), 3 deletions(-)
-
-
-diff --git a/builtin-clone.c b/builtin-clone.c
-index f1a1a0c..e2a88eb 100644
---- a/builtin-clone.c
-+++ b/builtin-clone.c
-@@ -483,7 +483,7 @@ int cmd_clone(int argc, const char **argv, const char *prefix)
+diff --git c/builtin-clone.c w/builtin-clone.c
+index 1e9c9aa..9face22 100644
+--- c/builtin-clone.c
++++ w/builtin-clone.c
+@@ -486,7 +486,7 @@ int cmd_clone(int argc, const char **argv, const char *prefix)
  			strbuf_reset(&key);
  
  		strbuf_addf(&key, "remote.%s.fetch", option_origin);
@@ -22,10 +16,10 @@ index f1a1a0c..e2a88eb 100644
  		git_config_set_multivar(key.buf, value.buf, "^$", 0);
  		strbuf_reset(&key);
  		strbuf_reset(&value);
-diff --git a/t/t5505-remote.sh b/t/t5505-remote.sh
+diff --git c/t/t5505-remote.sh w/t/t5505-remote.sh
 index 1f59960..33c6742 100755
---- a/t/t5505-remote.sh
-+++ b/t/t5505-remote.sh
+--- c/t/t5505-remote.sh
++++ w/t/t5505-remote.sh
 @@ -339,7 +339,8 @@ test_expect_success 'rename a remote' '
  	 rmdir .git/refs/remotes/origin &&
  	 test "$(git symbolic-ref refs/remotes/upstream/HEAD)" = "refs/remotes/upstream/master" &&
@@ -36,10 +30,10 @@ index 1f59960..33c6742 100755
  	 test "$(git config branch.master.remote)" = "upstream")
  
  '
-diff --git a/t/t5601-clone.sh b/t/t5601-clone.sh
-index 78a3fa6..c6f3d68 100755
---- a/t/t5601-clone.sh
-+++ b/t/t5601-clone.sh
+diff --git c/t/t5601-clone.sh w/t/t5601-clone.sh
+index fe287d3..e0d2a5a 100755
+--- c/t/t5601-clone.sh
++++ w/t/t5601-clone.sh
 @@ -82,7 +82,7 @@ test_expect_success 'clone --mirror' '
  	test -f mirror/HEAD &&
  	test ! -f mirror/file &&
