@@ -1,5 +1,6 @@
 From: Daniel Cordero <theappleman@gmail.com>
 
+NOTE: this breaks the test suite pretty badly.
 diff --git c/cache.h w/cache.h
 index 2d889de..670dc8c 100644
 --- c/cache.h
