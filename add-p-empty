@@ -6,28 +6,28 @@ When I use "git add -p", I usually need to add most of it as-is, and
 edit or reject a few. To make this faster, take a blank string (press
 enter) to stage the hunk or mode change.
 diff --git c/git-add--interactive.perl w/git-add--interactive.perl
-index 30ddab2..08132e9 100755
+index be8ca8e..f4849c8 100755
 --- c/git-add--interactive.perl
 +++ w/git-add--interactive.perl
-@@ -892,9 +892,9 @@ sub patch_update_file {
+@@ -931,9 +931,9 @@ sub patch_update_file {
  		while (1) {
  			print @{$mode->{DISPLAY}};
  			print colored $prompt_color,
 -				"Stage mode change [y/n/a/d/?]? ";
-+				"Stage mode change [Y/n/a/d/?]? ";
- 			my $line = <STDIN>;
++				"Stage mode change (y/n/a/d/?)? [y] ";
+ 			my $line = prompt_single_character;
 -			if ($line =~ /^y/i) {
-+			if ($line =~ /^y/i or $line =~ /^$/) {
++			if ($line =~ /^(y|$)/i) {
  				$mode->{USE} = 1;
  				last;
  			}
-@@ -965,10 +965,10 @@ sub patch_update_file {
+@@ -1004,10 +1004,10 @@ sub patch_update_file {
  		for (@{$hunk[$ix]{DISPLAY}}) {
  			print;
  		}
 -		print colored $prompt_color, "Stage this hunk [y,n,a,d,/$other,?]? ";
-+		print colored $prompt_color, "Stage this hunk [Y,n,a,d,/$other,?]? ";
- 		my $line = <STDIN>;
++		print colored $prompt_color, "Stage this hunk (y,n,a,d,/$other,?)? [y] ";
+ 		my $line = prompt_single_character;
  		if ($line) {
 -			if ($line =~ /^y/i) {
 +			if ($line =~ /^(y|$)/i) {
