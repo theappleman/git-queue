@@ -8,31 +8,31 @@ installed.
 
 If no UTF-8 locale is found, skip the tests.
 diff --git c/t/t9129-git-svn-i18n-commitencoding.sh w/t/t9129-git-svn-i18n-commitencoding.sh
-index 9c7b1ad..ad20abd 100755
+index 9c7b1ad..a8d7a01 100755
 --- c/t/t9129-git-svn-i18n-commitencoding.sh
 +++ w/t/t9129-git-svn-i18n-commitencoding.sh
-@@ -6,6 +6,11 @@ test_description='git svn honors i18n.commitEncoding in config'
+@@ -6,8 +6,10 @@ test_description='git svn honors i18n.commitEncoding in config'
  
  . ./lib-git-svn.sh
  
-+utf8_locale=$(locale -a | sed -ne '/[Uu][Tt][Ff]-*8/{
-+	p
-+	q
-+'})
++utf8_locale=$(locale -a | sed -ne '/[Uu][Tt][Ff]-*8/{p;q}')
 +
  compare_git_head_with () {
- 	nr=`wc -l < "$1"`
+-	nr=`wc -l < "$1"`
++	nr=$(wc -l < "$1")
  	a=7
-@@ -17,7 +22,7 @@ compare_git_head_with () {
+ 	b=$(($a + $nr - 1))
+ 	git cat-file commit HEAD | sed -ne "$a,${b}p" >current &&
+@@ -17,7 +19,7 @@ compare_git_head_with () {
  compare_svn_head_with () {
  	# extract just the log message and strip out committer info.
  	# don't use --limit here since svn 1.1.x doesn't have it,
 -	LC_ALL=en_US.UTF-8 svn log `git svn info --url` | perl -w -e '
-+	LC_ALL=$utf8_locale svn log `git svn info --url` | perl -w -e '
++	LC_ALL=$utf8_locale svn log $(git svn info --url) | perl -w -e '
  		use bytes;
  		$/ = ("-"x72) . "\n";
  		my @x = <STDIN>;
-@@ -69,7 +74,9 @@ do
+@@ -69,7 +71,9 @@ do
  	'
  done
  
@@ -43,7 +43,7 @@ index 9c7b1ad..ad20abd 100755
  	test_expect_success 'ISO-8859-1 should match UTF-8 in svn' '
  	(
  		cd ISO-8859-1 &&
-@@ -87,7 +94,7 @@ if locale -a |grep -q en_US.utf8; then
+@@ -87,7 +91,7 @@ if locale -a |grep -q en_US.utf8; then
  		'
  	done
  else
