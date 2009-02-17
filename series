@@ -7,4 +7,5 @@ gitk-vim-bindings
 add-p-empty
 new-workdir-guess-basename
 clone-no-ff-default
+request-diff
 abbrev-8

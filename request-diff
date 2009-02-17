@@ -1,0 +1,40 @@
+From: Daniel Cordero <theappleman@gmail.com>
+
+request-pull: include a full diff
+diff --git c/git-request-pull.sh w/git-request-pull.sh
+index a2cf5b8..c747f32 100755
+--- c/git-request-pull.sh
++++ w/git-request-pull.sh
+@@ -4,7 +4,7 @@
+ # This file is licensed under the GPL v2, or a later version
+ # at the discretion of Linus Torvalds.
+ 
+-USAGE='<start> <url> [<end>]'
++USAGE='[-n] [-C] <start> <url> [<end>]'
+ LONG_USAGE='Summarizes the changes between two commits to the standard output,
+ and includes the given URL in the generated summary.'
+ SUBDIRECTORY_OK='Yes'
+@@ -12,6 +12,16 @@ OPTIONS_SPEC=
+ . git-sh-setup
+ . git-parse-remote
+ 
++copy="M"
++case "$1" in
++	"-n")	nodiff="patch-with-"
++		shift
++	;;
++	"-C")	copy="C"
++		shift
++	;;
++esac
++
+ base=$1
+ url=$2
+ head=${3-HEAD}
+@@ -53,5 +63,5 @@ echo "  $url $branch"
+ echo
+ 
+ git shortlog ^$baserev $headrev
+-git diff -M --stat --summary $merge_base $headrev
++git diff -${copy} --${nodiff}stat --summary $merge_base $headrev
+ exit $status
