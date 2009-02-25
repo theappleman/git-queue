@@ -2,19 +2,19 @@ From: Daniel Cordero <theappleman@gmail.com>
 
 push: add -n short option to --dry-run
 diff --git c/Documentation/git-push.txt w/Documentation/git-push.txt
-index 7b27dc6..8e95440 100644
+index ac64211..a90003c 100644
 --- c/Documentation/git-push.txt
 +++ w/Documentation/git-push.txt
 @@ -9,7 +9,7 @@ git-push - Update remote refs along with associated objects
  SYNOPSIS
  --------
  [verse]
--'git push' [--all | --mirror] [--dry-run] [--tags] [--receive-pack=<git-receive-pack>]
-+'git push' [--all | --mirror] [-n | --dry-run] [--tags] [--receive-pack=<git-receive-pack>]
+-'git push' [--all | --mirror | --tags] [--dry-run] [--receive-pack=<git-receive-pack>]
++'git push' [--all | --mirror | --tags] [-n | --dry-run] [--receive-pack=<git-receive-pack>]
  	   [--repo=<repository>] [-f | --force] [-v | --verbose]
  	   [<repository> <refspec>...]
  
-@@ -78,6 +78,7 @@ nor in any Push line of the corresponding remotes file---see below).
+@@ -80,6 +80,7 @@ nor in any Push line of the corresponding remotes file---see below).
  	if the configuration option `remote.<remote>.mirror` is
  	set.
  
