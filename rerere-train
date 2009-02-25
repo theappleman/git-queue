@@ -1,0 +1,33 @@
+From: Daniel Cordero <theappleman@gmail.com>
+
+diff --git c/contrib/rerere-train.sh w/contrib/rerere-train.sh
+index 2cfe1b9..e295ffc 100755
+--- c/contrib/rerere-train.sh
++++ w/contrib/rerere-train.sh
+@@ -3,7 +3,7 @@
+ # Prime rerere database from existing merge commits
+ 
+ me=rerere-train
+-USAGE="$me rev-list-args"
++USAGE="$me [rev-list-args]"
+ 
+ SUBDIRECTORY_OK=Yes
+ OPTIONS_SPEC=
+@@ -20,7 +20,7 @@ original_HEAD=$(git rev-parse --verify HEAD) || {
+ 
+ mkdir -p "$GIT_DIR/rr-cache" || exit
+ 
+-git rev-list --parents "$@" |
++git rev-list --parents "${@:-HEAD}" |
+ while read commit parent1 other_parents
+ do
+ 	if test -z "$other_parents"
+@@ -36,7 +36,7 @@ do
+ 	fi
+ 	if test -s "$GIT_DIR/MERGE_RR"
+ 	then
+-		git show -s --pretty=format:"Learning from %h %s" "$commit"
++		git --no-pager show -s --pretty=format:"Learning from %h %s" "$commit"
+ 		git rerere
+ 		git checkout -q $commit -- .
+ 		git rerere

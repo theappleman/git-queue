@@ -8,4 +8,5 @@ add-p-empty
 new-workdir-guess-basename
 clone-no-ff-default
 request-diff
+rerere-train
 abbrev-8
