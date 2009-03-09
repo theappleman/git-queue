@@ -6,7 +6,7 @@ push-dry-run-short-option
 gitk-vim-bindings
 add-p-empty
 new-workdir-guess-basename
-clone-no-ff-default
 request-diff
 rerere-train
+clone-no-ff-default
 abbrev-8
