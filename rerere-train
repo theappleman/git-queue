@@ -1,5 +1,9 @@
 From: Daniel Cordero <theappleman@gmail.com>
 
+rerere-train: couple of changes
+
+Default to HEAD if no rev-list arguments are given.
+Stop git-show from blocking the training without human-interaction.
 diff --git c/contrib/rerere-train.sh w/contrib/rerere-train.sh
 index 2cfe1b9..e295ffc 100755
 --- c/contrib/rerere-train.sh
