@@ -8,7 +8,7 @@ installed.
 
 If no UTF-8 locale is found, skip the tests.
 diff --git c/t/t9129-git-svn-i18n-commitencoding.sh w/t/t9129-git-svn-i18n-commitencoding.sh
-index 9c7b1ad..a8d7a01 100755
+index 3200ab3..88701b9 100755
 --- c/t/t9129-git-svn-i18n-commitencoding.sh
 +++ w/t/t9129-git-svn-i18n-commitencoding.sh
 @@ -6,8 +6,10 @@ test_description='git svn honors i18n.commitEncoding in config'
@@ -32,23 +32,16 @@ index 9c7b1ad..a8d7a01 100755
  		use bytes;
  		$/ = ("-"x72) . "\n";
  		my @x = <STDIN>;
-@@ -69,7 +71,9 @@ do
+@@ -69,10 +71,10 @@ do
  	'
  done
  
 -if locale -a |grep -q en_US.utf8; then
 +if test "$utf8_locale"; then
-+	say "Using locale: $utf8_locale"
-+
- 	test_expect_success 'ISO-8859-1 should match UTF-8 in svn' '
- 	(
- 		cd ISO-8859-1 &&
-@@ -87,7 +91,7 @@ if locale -a |grep -q en_US.utf8; then
- 		'
- 	done
+ 	test_set_prereq UTF8
  else
 -	say "UTF-8 locale not available, test skipped"
 +	say "UTF-8 locale not available, tests skipped"
  fi
  
- test_done
+ test_expect_success UTF8 'ISO-8859-1 should match UTF-8 in svn' '
