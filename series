@@ -9,4 +9,3 @@ new-workdir-guess-basename
 request-diff
 rerere-train
 clone-no-ff-default
-abbrev-8
