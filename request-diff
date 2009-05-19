@@ -28,7 +28,7 @@ index 19335fd..f2918e2 100644
  	Commit to start at.
  
 diff --git c/git-request-pull.sh w/git-request-pull.sh
-index a2cf5b8..c747f32 100755
+index a2cf5b8..2bcad38 100755
 --- c/git-request-pull.sh
 +++ w/git-request-pull.sh
 @@ -4,7 +4,7 @@
@@ -40,11 +40,13 @@ index a2cf5b8..c747f32 100755
  LONG_USAGE='Summarizes the changes between two commits to the standard output,
  and includes the given URL in the generated summary.'
  SUBDIRECTORY_OK='Yes'
-@@ -12,6 +12,16 @@ OPTIONS_SPEC=
+@@ -12,6 +12,18 @@ OPTIONS_SPEC=
  . git-sh-setup
  . git-parse-remote
  
 +copy="M"
++nodiff=
++
 +case "$1" in
 +	"-n")	nodiff="patch-with-"
 +		shift
@@ -57,7 +59,7 @@ index a2cf5b8..c747f32 100755
  base=$1
  url=$2
  head=${3-HEAD}
-@@ -53,5 +63,5 @@ echo "  $url $branch"
+@@ -53,5 +65,5 @@ echo "  $url $branch"
  echo
  
  git shortlog ^$baserev $headrev
