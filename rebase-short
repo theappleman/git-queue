@@ -1,0 +1,33 @@
+From: Daniel Cordero <theappleman@gmail.com>
+
+diff --git c/git-rebase.sh w/git-rebase.sh
+index 18bc694..fdf0895 100755
+--- c/git-rebase.sh
++++ w/git-rebase.sh
+@@ -205,7 +205,7 @@ do
+ 	--no-verify)
+ 		OK_TO_SKIP_PRE_REBASE=yes
+ 		;;
+-	--continue)
++	-c|--c*)
+ 		test -d "$dotest" -o -d "$GIT_DIR"/rebase-apply ||
+ 			die "No rebase in progress?"
+ 
+@@ -238,7 +238,7 @@ do
+ 		move_to_original_branch
+ 		exit
+ 		;;
+-	--skip)
++	--sk|--ski|--skip)
+ 		test -d "$dotest" -o -d "$GIT_DIR"/rebase-apply ||
+ 			die "No rebase in progress?"
+ 
+@@ -268,7 +268,7 @@ do
+ 		move_to_original_branch
+ 		exit
+ 		;;
+-	--abort)
++	-a|--a|--ab|--abo|--abor|--abort)
+ 		test -d "$dotest" -o -d "$GIT_DIR"/rebase-apply ||
+ 			die "No rebase in progress?"
+ 

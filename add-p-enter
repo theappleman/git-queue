@@ -1,0 +1,19 @@
+From: Daniel Cordero <theappleman@gmail.com>
+
+diff --git c/git-add--interactive.perl w/git-add--interactive.perl
+index 392efb9..1beac0a 100755
+--- c/git-add--interactive.perl
++++ w/git-add--interactive.perl
+@@ -1269,10 +1269,10 @@ sub patch_update_file {
+ 		print colored $prompt_color, $patch_mode_flavour{VERB},
+ 		  ($hunk[$ix]{TYPE} eq 'mode' ? ' mode change' : ' this hunk'),
+ 		  $patch_mode_flavour{TARGET},
+-		  " [y,n,q,a,d,/$other,?]? ";
++		  " (y,n,q,a,d,/$other,?) [y]? ";
+ 		my $line = prompt_single_character;
+ 		if ($line) {
+-			if ($line =~ /^y/i) {
++			if ($line =~ /^(y|$)/i) {
+ 				$hunk[$ix]{USE} = 1;
+ 			}
+ 			elsif ($line =~ /^n/i) {

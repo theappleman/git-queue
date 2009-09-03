@@ -2,7 +2,8 @@ t9129-test-utf-8-error
 t9100-test-utf-8-error
 push-dry-run-short-option
 gitk-vim-bindings
-add-p-empty
 new-workdir-guess-basename
 request-diff
 rerere-train
+rebase-short
+add-p-enter
