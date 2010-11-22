@@ -1,8 +1,5 @@
-t9129-test-utf-8-error
-t9100-test-utf-8-error
 gitk-vim-bindings
 new-workdir-guess-basename
-request-diff
 rerere-train
 rebase-short
 add-p-enter
